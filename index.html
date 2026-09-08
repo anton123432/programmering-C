@@ -51,20 +51,59 @@
       </div>
 
       <div class="project-content">
-        <h4>Projektbeskrivelse</h4>
-        <p>vi har abrejdet med simple koder i wokwi, hvor vi øvede os i at finde fejl i koder, og skrive simple koder med loops</p>
+        <h4>Projektbeskrivelse: Baksensor</h4>
+        <p>vi har abrejdet med simple koder i wokwi, hvor vi øvede os i at finde fejl i koder, og skrive simple koder med loops. vi lavede også et projekt hvor med en baksensor, hvor vi kombinerede de forskellige koder</p>
 
         <h4>Kildekode / Resultat</h4>
-        <pre><code>// Eksempel på koden der blev skrevet
-int main() {
-    printf("Hello World!");
-    return 0;
+        <pre><code>// import time
+from machine import Pin
+
+trig_pin = Pin(3, Pin.OUT)
+Echo_pin = Pin(8, Pin.IN)
+LED = Pin(16, Pin.OUT)
+buzzer = Pin(14, Pin.OUT)
+
+while True:
+
+    trig_pin.value(0)
+    time.sleep_us(2)
+
+    trig_pin.value(1)
+    time.sleep_us(10)
+
+    trig_pin.value(0)
+
+    while Echo_pin.value() == 0:
+        pass
+
+    start = time.ticks_us()
+
+    while Echo_pin.value() == 1:
+        pass
+
+    slut = time.ticks_us()
+
+    tid = time.ticks_diff(slut, start)
+
+    afstand = tid * 0.0343 / 2
+
+    print("afstand", round(afstand, 2), "cm")
+
+    time.sleep(0.5)
+
+    if afstand> 20:
+      LED.value(1)
+      buzzer.value(1)
+    else:
+      LED.value(0)
+      buzzer.value(0)
+
 }</code></pre>
 
         <h4>Refleksion & Læring</h4>
         <ul>
-          <li>Hvad gik godt undervejs?</li>
-          <li>Hvilke udfordringer stødte du på, og hvordan blev de løst?</li>
+          <li>de første step af søjlekoden var relativt nemme at skrive, og at lave den tekniske opsætning var også fint</li>
+          <li>den primære udfordring jeg stødte på var når søjlekoden krævede funktioner som jeg ikke kendte i forvejen. problemet kunne dog løses ved at sparre med chatgpt, så man på den måde forstod koden bedre</li>
         </ul>
 
         <a href="https://github.com/dit-brugernavn/dit-projekt" target="_blank" class="btn">Se kildekode på GitHub</a>
@@ -93,3 +132,5 @@ int main() {
 
 </body>
 </html>
+>
+>
