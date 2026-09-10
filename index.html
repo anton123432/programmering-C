@@ -114,9 +114,80 @@ while True:
     <article class="card project-block">
       <div class="project-header">
         <span class="badge">Forløb 2</span>
-        <h3>[Titel på næste projekt]</h3>
-        <span class="date">Måned År</span>
+        <h3>kommentar puslespil</h3>
+        <span class="date">10-9-2026</span>
       </div>
+<div class="project-content">
+        <h4>Projektbeskrivelse: Baksensor</h4>
+        <p>vi øvede os i at læse kode og skrive kommentarer til hvordan koden virkede </p>
+
+        <h4>Kildekode / Resultat</h4>
+        <pre><code>// import time
+# Importerer de biblioteker, som programmet skal bruge.
+from machine import Pin
+from utime import sleep
+import neopixel
+
+
+# Opretter forbindelse til NeoPixel-ringen med 16 LEDs på pin 4.
+p = Pin(4, Pin.OUT)
+n = neopixel.NeoPixel(p, 16)
+
+
+# Opretter variabler til antallet af pixels og RGB-farverne.
+numP = 16
+
+r = 0
+g = 0
+b = 0
+
+
+# Tænder NeoPixels én efter én med den valgte RGB-farve.
+def taend_mix():
+
+    for i in range(numP):
+
+        n[i] = (r, g, b)
+
+        n.write()
+
+        sleep(0.5)
+
+
+# Spørger brugeren hvor meget rød, grøn og blå der skal være i farven.
+r = int(input("hvor meget rød"))
+g = int(input("hvor meget grøn"))
+b = int(input("hvor meget blå?"))
+
+
+# Gentager lysshowet igen og igen.
+while True:
+
+    taend_mix()
+
+    taend_red()
+
+    sluk()
+
+    taend_green()
+
+    sluk()
+
+    taend_blue()
+
+    sluk()
+
+}</code></pre>
+
+        <h4>Refleksion & Læring</h4>
+        <ul>
+          <li>eftersom jeg har meget erfaring med at læse kode, så gik det hele godt</li>
+          <li>jeg stødte ikke på nogle udfordinger</li>
+        </ul>
+
+        <a href="https://github.com/dit-brugernavn/dit-projekt" target="_blank" class="btn">Se kildekode på GitHub</a>
+      </div>
+    </article>
 
       <div class="project-content">
         <p>Kopier denne blok, når I starter et nyt forløb i undervisningen.</p>
